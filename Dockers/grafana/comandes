@@ -1,0 +1,8 @@
+## grafana influxdb ##
+mkdir /home/ivan/docker/
+mkdir /home/ivan/docker/grafana/
+mkdir /home/ivan/docker/grafana/data_grafana
+mkdir /home/ivan/docker/grafana/data_influxdb
+cd /home/ivan/docker/grafana
+nano docker-compose.yml
+docker compose up -d
