@@ -1,0 +1,6 @@
+## duckdns ##
+mkdir /home/USER/docker/duckdns/
+mkdir /home/USER/docker/duckdns/duckdns
+cd /home/USER/docker/duckdns/
+nano docker-compose.yml
+docker compose up -d
