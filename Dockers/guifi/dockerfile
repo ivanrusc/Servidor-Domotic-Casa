@@ -1,0 +1,10 @@
+FROM debian:9
+RUN rm /etc/localtime && ln -s /usr/share/zoneinfo/Europe/Madrid /etc/localtime
+RUN apt-get update
+RUN apt-get install -y gnupg dialog apt-utils logrotate php php-cli php-gd libapache2-mod-php php-xml
+RUN echo "deb http://serveis.guifi.net/debian ubuntu/" >> /etc/apt/sources.list
+RUN apt-key adv --keyserver pgp.mit.edu --recv-keys 85329CE12E484DAB
+RUN apt-get update
+RUN export DEBIAN_FRONTEND="noninteractive" && apt-get install -y snpservices
+RUN sed -i s/6559/63945/g /etc/snpservices/config.php
+CMD service cron start && service apache2 start && tail -F /var/log/apache2/access.log
